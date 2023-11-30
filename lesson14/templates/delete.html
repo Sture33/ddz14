@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><a href="{% url 'index' %}">Home</a></p>
+    <p><a href="{% url 'form' %}">Create</a></p>
+    <h1>Are you sure?</h1
+    >
+    <form method="POST">
+        {%csrf_token%}
+        <label for="yes">Yes</label>
+        <input type="radio" name="answer" value="True" id="yes">
+        <label for="yes">No</label>
+        <input type="radio" name="answer" value="False" id="no">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

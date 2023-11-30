@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Index Page</h1>
+    <p><a href="{% url 'form' %}">Create</a></p>
+
+    <form method="POST">
+        {%csrf_token%}
+        {% for filter in filter_list %}
+        <label for="{{filter}}">{{filter}}</label>
+        <input type="checkbox" name="filter" value="{{filter}}" id="{{filter}}">
+        {% endfor %}
+
+        <input type="submit" value="Filter">
+    </form>
+
+    {% for feedback in filtered_list %}
+        <p>{{ feedback }} - <a href="{%url 'update' feedback.pk%}">Update</a> - <a href="{%url 'delete' feedback.pk%}">Delete</a></p>
+    {% endfor %}
+
+</body>
+</html>
+
+
